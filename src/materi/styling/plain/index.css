@@ -1,0 +1,18 @@
+.btn {
+  background-color: lightblue;
+  padding: 5px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  border-style: double;
+  border-width: thick;
+  border-color: blue;
+}
+.btn-submit:hover {
+  background-color: lightgreen;
+}
+.btn-submit:active {
+  background-color: rgb(0, 128, 17);
+}

@@ -1,0 +1,81 @@
+body {
+  background-color: #306b00;
+background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
+}
+
+nav {
+  margin-bottom: 80px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.mytitle {
+  margin-bottom: 80px;
+}
+
+.myPaper {
+  min-height: 700px;
+  width: 1050px;
+  background-color: #29931d;
+  margin: auto;
+  border-radius: 13px;
+  box-shadow: 5px -5px 5px #357e2c;
+  padding: 30px 50px;
+}
+
+.mygrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.mygrid > * {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: thin;
+  padding: 5px 10px;
+  background-color: #759e02;
+}
+
+#root ul > * {
+  background-color: #29931d;
+}
+
+.contactground {
+  background-color: #1d9368;
+  border-radius: 10px;
+}
+
+#root form input.form-control {
+  width: 400px;
+}
+
+form input {
+  margin: auto;
+  text-align: center;
+}
+
+#emailHelp {
+  color: #353537;
+}
+
+#exampleCheck1 {
+  transform: scale(1.4);
+  margin-right: 6px;
+}
+
+form textarea {
+  border-radius: 8px;
+}
+
+form button.btn-primary {
+  background-color: #39cb29;
+  border-style: none;
+}
+
+footer span.myfootertext {
+  margin: auto;
+  color: #353537;
+}
