@@ -5,34 +5,37 @@ import Cards from './cards.jsx';
 const newsapiEV = `https://newsapi.org/v2/everything`;
 const newsapiTH = `https://newsapi.org/v2/top-headlines`;
 const pr = {
-  key: 'apiKey=b5d18de9619d4affb26d9aef07d1c909',
+  key: 'apiKey=5b5faf373f0c4c269683b16bece8f00b',
   country: 'country=id',
   pagesize: 'pageSize=12',
   searchAccuracy: 'searchIn=title,description'
 };
 
 export default function Newsapi() {
-  const [jsonapi, setjsonapi] = React.useState([]);
+  const [newsJsonList, setNewsJsonList] = React.useState([]);
   const [userin, setuserin] = React.useState('');
-  const [, rerender] = React.useState();
-  const needRender = React.useRef(true);
+  const showLoading = React.useRef(true);
 
   React.useEffect(() => {
     axios.get(
       `${newsapiTH}?${pr.key}&${pr.country}&${pr.pagesize}`
     ).then(res => {
-      console.log(res.data.articles);
-      setjsonapi(res.data.articles);
+      // console.log('A2. initial main page: ', res.data.articles);
+      setNewsJsonList(res.data.articles);
     });
   }, []);
+
   React.useEffect(() => {
-    if(needRender.current) {
-      needRender.current = false;
-      console.log(needRender.current);
-      rerender('');
+    if(showLoading.current) {
+
+      showLoading.current = false;
+      // console.log('S2/A2. turning the need to false to show the result next reload');
+    } else {
+      // console.log('S3/A3. after second reload because received the result: ', newsJsonList);
     }
-  }, [jsonapi]);
-  React.useEffect(() => console.log('re-render'));
+  }, [newsJsonList]);
+  // React.useEffect(() => console.log('S2/A2/A3. useEffect re-render: ', showLoading.current));
+
 
   function search() {
     const toCheck = userin.trim();
@@ -47,22 +50,22 @@ export default function Newsapi() {
       }
     }
     if(!err) {
-      needRender.current = true;
-      rerender('search function');
-      console.log(modString);
+      showLoading.current = true;
+      setNewsJsonList('');
+      // console.log('S2. search accepted, modstring: ', modString);
       axios.get(`${newsapiEV}?${pr.key}&${pr.pagesize}&${pr.searchAccuracy}&q=${modString}`).then(
         res => {
-          console.log(res.data.articles);
-          setjsonapi(res.data.articles);
+          // console.log('S3. received json from newsapi: ', res.data.articles);
+          setNewsJsonList(res.data.articles);
         });
     } else {
-      console.log(modString);
+      // console.log('S1. search not accepted: ', modString);
       alert('Hanya terima angka, huruf, dan spasi');
     }
   }
 
-  if(needRender.current) {
-    console.log('the return if');
+  if(showLoading.current) {
+    // console.log('S1/S4/A1. should show loading');
     return <h1>Loading...</h1>;
   } else {
     return (
@@ -74,7 +77,7 @@ export default function Newsapi() {
       <button className="btn btn-info" type="button" id="button-addon2"
       onClick={search}>Search</button>
       </div>
-      <Cards objList={jsonapi} />
+      <Cards objList={newsJsonList} />
       </>
     )
   }
