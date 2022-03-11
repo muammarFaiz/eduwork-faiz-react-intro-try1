@@ -1,12 +1,12 @@
 import React from 'react';
-import Myform from './formValidation/index.jsx';
+import Newsapi from './newsapiReact/index.jsx';
 const mystyle = {
-  'padding': '50px'
+  'padding': '100px 50px 50px'
 };
 export default function Main() {
   return (
     <div style={mystyle}>
-      <Myform />
+      <Newsapi />
     </div>
   )
 }

@@ -1,10 +1,13 @@
 import React from 'react';
 import {check} from './validate.jsx';
 // TODO: re-learn the validation, useState, and useEffect from Youtube
+// TODO: re-learn how to use news api, bootstrap cards, searchbar, update react when submit
 
 export default function Myform() {
   const [userinp, setuserinp] = React.useState({myemail: '', mypassword: ''});
   const [err, seterr] = React.useState([]);
+
+  React.useEffect(() => {console.log('re-render');});
 
   function submitme(val) {
     val.preventDefault();
@@ -32,7 +35,6 @@ export default function Myform() {
       setuserinp(prev => {return {...prev, mypassword: val.target.value};});
     }
   }
-  // React.useEffect(() => {console.log('re-render');});
 
   return (
     <>

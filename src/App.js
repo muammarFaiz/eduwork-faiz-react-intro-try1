@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import './App.css';
+import './faiz.css';
 // import Komponen from './materi/komponen/index.jsx';
 import Materi from './materi/index.jsx';
 
