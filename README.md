@@ -1,4 +1,4 @@
-## tugas5: buat news cards dari newsapi
+## tugas6: buat news cards dari newsapi pakai functional component
 - React
 - Axios
 - Bootstrap
