@@ -3,4 +3,4 @@
 - Axios
 - Bootstrap
 
-<img src="./ezgif-reactnewsapi.gif" />
+<img src="./tugas6FC.gif" />
